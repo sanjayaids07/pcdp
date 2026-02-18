@@ -3,29 +3,29 @@ import { useNavigate } from 'react-router-dom';
 import Sidebar from '../Component/Sidebar';
 import '../Style/Availablecourses.css';
 
-import algebraImg from '../assets/images/Algebra.jpg';
-import Apti from '../assets/images/Apti.png';
-import Assem from '../assets/images/Assembling.jpeg';
-import Linux from '../assets/images/Linux.jpeg';
-import System from '../assets/images/System administration.jpeg';
-import Computer from '../assets/images/Computer networking.jpeg';
-import C from '../assets/images/C.jpeg';
-import Physical from '../assets/images/Physical fitness.jpeg';
-import Plc from '../assets/images/PLC.jpeg';
-import Problem from '../assets/images/Problem.jpeg';
-import welding from '../assets/images/welding.jpeg';
-import Leadership from '../assets/images/Leadership.png';
-import Ps from '../assets/images/Ps assessment.png';
-import IPR from '../assets/images/Ipr patent.jpeg';
-import Yoga from '../assets/images/Yoga.jpeg';
-import Prototype from '../assets/images/Prototype.png';
-import Gp from '../assets/images/Gp.png';
-import Daily from '../assets/images/Daily chalenge.jpeg';
-import Creative from '../assets/images/Creative media.jpeg';
-import Autonomy from '../assets/images/Autonomy.jpeg';
-import Electrical from '../assets/images/Electrical wiring.jpeg';
+// Corrected image imports (matching your exact folder names)
+import algebraImg from '../assets/images/algebra.jpg';
+import Apti from '../assets/images/apti.png';
+import Assem from '../assets/images/assembling.jpeg';
+import Linux from '../assets/images/linux.jpeg';
+import System from '../assets/images/system-administration.jpeg';
+import Computer from '../assets/images/computer-networking.jpeg';
+import C from '../assets/images/c.jpeg';
+import Physical from '../assets/images/physical-fitness.jpeg';
+import Plc from '../assets/images/plc.jpeg';
+import Problem from '../assets/images/problem.jpeg';
+import Welding from '../assets/images/welding.jpeg';
+import Leadership from '../assets/images/leadership.png';
+import Ps from '../assets/images/ps-assessment.png';
+import IPR from '../assets/images/ipr-patent.jpeg';
+import Yoga from '../assets/images/yoga.jpeg';
+import Prototype from '../assets/images/prototype.png';
+import Gp from '../assets/images/gp.png';
+import Daily from '../assets/images/daily-challenge.jpeg';
+import Creative from '../assets/images/creative-media.jpeg';
+import Autonomy from '../assets/images/autonomy.jpeg';
+import Electrical from '../assets/images/electrical-wiring.jpeg';
 import Electronics from '../assets/images/electronics.jpeg';
-
 
 const courses = [
   { title: 'Algebra', levels: 2, difficulty: 'Beginner', progress: 1, category: 'Math', image: algebraImg },
@@ -41,7 +41,7 @@ const courses = [
   { title: 'Leadership', levels: 4, difficulty: 'Beginner', progress: 0, category: 'Mechanical', image: Leadership },
   { title: 'IPR-Patent Search', levels: 2, difficulty: 'Beginner', progress: 0, category: 'Regulations', image: IPR },
   { title: 'PLC - Gurugulam Assessment', levels: 1, difficulty: 'Beginner', progress: 0, category: 'Math', image: Plc },
-  { title: 'Welding', levels: 1, difficulty: 'Beginner', progress: 0, category: 'Logic', image: welding },
+  { title: 'Welding', levels: 1, difficulty: 'Beginner', progress: 0, category: 'Logic', image: Welding },
   { title: 'Physical Fitness-Yoga', levels: 1, difficulty: 'Beginner', progress: 0, category: 'Mechanical', image: Yoga },
   { title: 'Ps Assessment - Brainstroming(2025-2029)', levels: 1, difficulty: 'Beginner', progress: 0, category: 'Regulations', image: Ps },
   { title: 'Problem Solving Skills - First Year', levels: 1, difficulty: 'Beginner', progress: 0, category: 'Regulations', image: Problem },
@@ -82,6 +82,7 @@ function AvailableCourses() {
               onChange={(e) => setSearch(e.target.value)}
               className="search-bar"
             />
+
             <select value={category} onChange={(e) => setCategory(e.target.value)} className="dropdown">
               <option>All Categories</option>
               <option>Math</option>
@@ -89,6 +90,7 @@ function AvailableCourses() {
               <option>Mechanical</option>
               <option>Regulations</option>
             </select>
+
             <select value={sort} onChange={(e) => setSort(e.target.value)} className="dropdown">
               <option>Name</option>
               <option>Progress</option>
@@ -96,6 +98,7 @@ function AvailableCourses() {
           </div>
 
           <h2 className="course-title">Courses Available</h2>
+
           <div className="course-grid">
             {filteredCourses.map((course, index) => (
               <div
@@ -104,10 +107,14 @@ function AvailableCourses() {
                 onClick={() => navigate('/course-detail', { state: { course } })}
               >
                 <img src={course.image} alt={course.title} className="course-img" />
+
                 <h3>{course.title}</h3>
-                <div className='course-name'>
-                  <p>Levels: {course.levels}</p> <p>{course.difficulty}</p>
-                 </div>
+
+                <div className="course-name">
+                  <p>Levels: {course.levels}</p>
+                  <p>{course.difficulty}</p>
+                </div>
+
                 <div className="progress-bar">
                   {Array.from({ length: course.levels }).map((_, i) => (
                     <div
@@ -116,6 +123,7 @@ function AvailableCourses() {
                     ></div>
                   ))}
                 </div>
+
                 <p className="progress-text">
                   {course.progress}/{course.levels} levels &nbsp;|&nbsp;
                   {Math.round((course.progress / course.levels) * 100)}%
@@ -123,6 +131,7 @@ function AvailableCourses() {
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </div>
@@ -130,3 +139,4 @@ function AvailableCourses() {
 }
 
 export default AvailableCourses;
+
