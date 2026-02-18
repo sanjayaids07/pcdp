@@ -3,60 +3,60 @@ import { useLocation } from 'react-router-dom';
 import Sidebar from '../Component/Sidebar';
 import '../Style/MyCourses.css';
 
-
-
-import algebraImg from '../assets/images/Algebra.jpg';
-import Apti from '../assets/images/Apti.png';
-import Assem from '../assets/images/Assembling.jpeg';
-import Linux from '../assets/images/Linux.jpeg';
-import System from '../assets/images/System administration.jpeg';
-import Computer from '../assets/images/Computer networking.jpeg';
-import C from '../assets/images/C.jpeg';
-import Physical from '../assets/images/Physical fitness.jpeg';
-import Plc from '../assets/images/PLC.jpeg';
-import Problem from '../assets/images/Problem.jpeg';
-import welding from '../assets/images/welding.jpeg';
-import Leadership from '../assets/images/Leadership.png';
-import Ps from '../assets/images/Psassessment.png';
-import IPR from '../assets/images/Ipr patent.jpeg';
-import Yoga from '../assets/images/Yoga.jpeg';
-import Prototype from '../assets/images/Prototype.png';
-import Gp from '../assets/images/Gp.png';
-import Daily from '../assets/images/Daily chalenge.jpeg';
-import Creative from '../assets/images/Creative media.jpeg';
-import Autonomy from '../assets/images/Autonomy.jpeg';
-import Electrical from '../assets/images/Electrical wiring.jpeg';
+// Corrected image imports (matching your exact filenames)
+import algebraImg from '../assets/images/algebra.jpg';
+import Apti from '../assets/images/apti.png';
+import Aptitude from '../assets/images/aptitude.jpeg';
+import Assem from '../assets/images/assembling.jpeg';
+import Autonomy from '../assets/images/autonomy.jpeg';
+import C from '../assets/images/c.jpeg';
+import Computer from '../assets/images/computer-networking.jpeg';
+import Creative from '../assets/images/creative-media.jpeg';
+import Daily from '../assets/images/daily-challenge.jpeg';
+import Electrical from '../assets/images/electrical-wiring.jpeg';
 import Electronics from '../assets/images/electronics.jpeg';
+import Gp from '../assets/images/gp.png';
+import Ipr from '../assets/images/ipr-patent.jpeg';
+import Leadership from '../assets/images/leadership.png';
+import Linux from '../assets/images/linux.jpeg';
+import Pcdp from '../assets/images/pcdp.png';
+import Physical from '../assets/images/physical-fitness.jpeg';
+import Plc from '../assets/images/plc.jpeg';
+import Problem from '../assets/images/problem.jpeg';
+import Prototype from '../assets/images/prototype.png';
+import Ps from '../assets/images/ps-assessment.png';
+import System from '../assets/images/system-administration.jpeg';
+import Welding from '../assets/images/welding.jpeg';
 
 function MyCourse() {
   const [courses, setCourses] = useState([]);
 
- 
   const imageMap = {
     'Algebra': algebraImg,
-    'Aptitude': Apti,
+    'Aptitude': Aptitude,
+    'Aptitude Test': Apti,
     'Assembly and Dismantling': Assem,
-    'Linux': Linux,
-    'System Administration': System,
-    'Computer Networking': Computer,
+    'Autonomy Affairs-Regulation': Autonomy,
     'C programming': C,
+    'Computer Networking': Computer,
+    'Creative Media': Creative,
+    'Problem Solving Skills-Daily Challenge': Daily,
+    'Electrical Wiring - Gurugulam Assessment': Electrical,
+    'Electronics - Gurugulam Assessment': Electronics,
+    'Gp-Challenge': Gp,
+    'IPR-Patent Search': Ipr,
+    'Leadership': Leadership,
+    'Linux': Linux,
+    'PCDP Logo': Pcdp,
     'Physical Fitness': Physical,
     'PLC - Gurugulam Assessment': Plc,
     'Problem Solving Skills - First Year': Problem,
-    'Welding': welding,
-    'Leadership': Leadership,
-    'Ps Assessment - Brainstroming(2025-2029)': Ps,
-    'IPR-Patent Search': IPR,
-    'Physical Fitness-Yoga': Yoga,
     'Prototype_Gurugulam Assessment': Prototype,
-    'Gp-Challenge': Gp,
-    'Problem Solving Skills-Daily Challenge': Daily,
-    'Creative Media': Creative,
-    'Autonomy Affairs-Regulation': Autonomy,
-    'Electrical Wiring - Gurugulam Assessment': Electrical,
-    'Electronics - Gurugulam Assessment': Electronics
+    'Ps Assessment - Brainstroming(2025-2029)': Ps,
+    'System Administration': System,
+    'Welding': Welding
   };
- 
+
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem('registeredLevels')) || [];
 
@@ -64,7 +64,7 @@ function MyCourse() {
       const baseTitle = level.title.split(' - Level')[0];
       return {
         ...level,
-        image: imageMap[baseTitle] || Autonomy
+        image: imageMap[baseTitle] || Pcdp  // fallback image
       };
     });
 
@@ -76,13 +76,13 @@ function MyCourse() {
       <Sidebar />
       <div className="mc-content">
         <h2>My Registered Levels</h2>
+
         {courses.length > 0 ? (
           <div className="mc-grid">
             {courses.map((course, index) => (
               <div key={index} className="mc-card">
                 <img src={course.image} alt={course.title} className="mc-image" />
                 <h3>{course.title}</h3>
-                
               </div>
             ))}
           </div>
