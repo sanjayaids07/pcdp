@@ -15,7 +15,7 @@ import C from '../assets/images/C.jpeg';
 import Physical from '../assets/images/Physical fitness.jpeg';
 import Plc from '../assets/images/PLC.jpeg';
 import Problem from '../assets/images/Problem.jpeg';
-import welding from '../assets/images/Welding.jpeg';
+import welding from '../assets/images/welding.jpeg';
 import Leadership from '../assets/images/Leadership.png';
 import Ps from '../assets/images/Ps assessment.png';
 import IPR from '../assets/images/Ipr patent.jpeg';
